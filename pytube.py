@@ -15,7 +15,17 @@ def run():
     with youtube_dl.YoutubeDL(options) as ydl:
         ydl.download([video_info['webpage_url']])
 
-    print("Téléchargement complété... {}".format(filename))
+    print("Téléchargement complété : {}".format(filename))
+    confirm()
+
+def confirm():
+    r = input("\nTélécharger une autre musique ? (Y/N) :")
+    if r == "n" or r == "N":
+        return
+    elif r == "y" or r == "Y":
+        run()
+    else:
+        return
 
 if __name__=='__main__':
     run()
